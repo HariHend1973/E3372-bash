@@ -29,7 +29,7 @@ cct_secs=$CurConnTime
 printf 'Current Connect Time : %d days: %02d hours: %02d minutes: %02d sseconds\n' $((cct_secs/86400)) $((cct_secs%86400/3600)) $((cct_secs%3600/60)) $((cct_secs%60))
 
 #------------------------------
-# Totao Connect Time
+# Total Connect Time
 #------------------------------
 tct_secs=$TotalConnectTime
 printf 'Total Connect Time : %d days: %02d hours: %02d minutes: %02d sseconds\n' $((tct_secs/86400)) $((tct_secs%86400/3600)) $((tct_secs%3600/60)) $((tct_secs%60))
