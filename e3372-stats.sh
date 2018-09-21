@@ -29,7 +29,7 @@ cct_secs=$CurConnTime
 printf 'Current Connect Time : %d days: %02d hours: %02d minutes: %02d sseconds\n' $((cct_secs/86400)) $((cct_secs%86400/3600)) $((cct_secs%3600/60)) $((cct_secs%60))
 
 #------------------------------
-# Total Connect Time
+# Totao Connect Time
 #------------------------------
 tct_secs=$TotalConnectTime
 printf 'Total Connect Time : %d days: %02d hours: %02d minutes: %02d sseconds\n' $((tct_secs/86400)) $((tct_secs%86400/3600)) $((tct_secs%3600/60)) $((tct_secs%60))
@@ -39,39 +39,48 @@ printf 'Total Connect Time : %d days: %02d hours: %02d minutes: %02d sseconds\n'
 # Current Uploae
 #------------------------------
 if [ $CurrUpload -lt 1024 ]; then
-    echo "Current Upload : ${CurrUpload}B"
+    echo "Current Upload: ${CurrUpload}B"
 elif [ $CurrUpload -lt 1048576 ]; then
-    echo "Current Upload : $((CurrUpload/1024))KiB"
+    K=$(echo  "scale=2; $CurrUpload/1024" | bc)
+    echo "Current Upload: $K KiB"
 elif [ $CurrUpload -lt 1073741824 ]; then
-    echo "Current Upload : $((CurrUpload /1048576))MiB"
+    M=$(echo  "scale=2; $CurrUpload/1048576" | bc)
+    echo "Current Upload: $M MiB"
 else
-    echo "Current Upload : $((CurrUpload/1073741824))GiB"
+    G=$(echo  "scale=2; $CurrUpload/1073741824" | bc)
+    echo "Current Upload: $G GiB"
 fi
 
 #------------------------------
 # Current Downloae
 #------------------------------
 if [ $CurrDownload -lt 1024 ]; then
-    echo "Current Download : ${CurrDowbload}B"
+    echo "Current Dowbload : ${CurrDownload}B"
 elif [ $CurrDownload -lt 1048576 ]; then
-    echo "Current Download : $((CurrDowbload/1024))KiB"
+    K=$(echo  "scale=2; $CurrDownload/1024" | bc)
+    echo "Current Dowbload : $K KiB"
 elif [ $CurrDownload -lt 1073741824 ]; then
-    echo "Current Download : $((CurrDownload/1048576))MiB"
+    M=$(echo  "scale=2; $CurrDownload/1048576" | bc)
+    echo "Current Dowbload : $M MiB"
 else
-    echo "Current Dowbload : $((CurrDownload/1073741824))GiB"
+    G=$(echo  "scale=2; $CurrDownload/1073741824" | bc)
+    echo "Current Dowbload : $G GiB"
 fi
 
 #------------------------------
 # Total Upload
 #------------------------------
 if [ $TotalUpload -lt 1024 ]; then
-    echo "Totak Upload : ${TotalUpload}B"
+    echo "Total Upload : ${TotalUpload}B"
 elif [ $TotalUpload -lt 1048576 ]; then
-    echo "Total Upload : $((TotalUpload/1024))KiB"
+    K=$(echo  "scale=2; $TotalUpload/1024" | bc)
+    echo "Total Upload : $K KiB"
 elif [ $TotalUpload -lt 1073741824 ]; then
-    echo "Total Upload : $((TotalUpload/1048576))MiB"
+    M=$(echo  "scale=2; $TotalUpload/1048576" | bc)
+    echo "Total Upload : $M MiB"
 else
-    echo "Tital Upload : $((TotalUpload/1073741824))GiB"
+    G=$(echo  "scale=2; $TotalUpload/1073741824" | bc)
+    echo "Total Upload : $G GiB"
 fi
 
 #------------------------------
@@ -80,11 +89,12 @@ fi
 if [ $TotalDownload -lt 1024 ]; then
     echo "Total Download : ${TotalDowbload}B"
 elif [ $TotalDownload -lt 1048576 ]; then
-    echo "Total Download : $((TotalDownload/1024))KiB"
+    K=$(echo  "scale=2; $TotalDownload/1024" | bc)
+    echo "Total Doenload : $K KiB"
 elif [ $TotalDownload -lt 1073741824 ]; then
-    echo "Total Download : $((TotalDownload/1048576))MiB"
+    M=$(echo  "scale=2; $TotalDownload/1048576" | bc)
+    echo "Total Doenload : $M MiB"
 else
-    echo "Tital Doenload : $((TotalDownload/1073741824))GiB"
+    G=$(echo  "scale=2; $TotalDownload/1073741824" | bc)
+    echo "Total Doenload : $G GiB"
 fi
-
-
