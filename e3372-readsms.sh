@@ -9,7 +9,7 @@ curl -s -X POST "http://$MODEM_IP/api/sms/sms-list" -H "Cookie: $COOKIE" -H "__R
 
 #cat modem_status.xml
 
-message=$(cat modem_status.xml | grep Content | sed -e 's/<[^>]*>//g')
+message=$(grep -r Content modem_status.xml | sed -e 's/<[^>]*>//g')
 
 #message=$(echo $message | sed -e 's/^[[:space:]]*//')
 
